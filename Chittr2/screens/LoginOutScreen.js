@@ -29,7 +29,20 @@ class LoginOutScreen extends Component {
             })
             .then((response) => {
                 console.log(response);
-                return response.json();
+                if(response.ok){
+
+                    return response.json();
+                }
+                else{
+                    Alert.alert(
+                        'Error',
+                        'No Record of this password or username',
+                        [
+                            { text: 'ok', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                        ],
+                        { cancelable: true }
+                    )
+                }
             })
             .then((responseJson) => {
                 if(responseJson){
@@ -66,7 +79,6 @@ class LoginOutScreen extends Component {
                         title="Register"
                         onPress={() => this.props.navigation.navigate('Register')}
                     />
-                <Text>{global.token}</Text>
                 
             </View>
         );

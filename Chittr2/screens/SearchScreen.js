@@ -37,6 +37,7 @@ class SearchScreen extends Component {
                 this.state.users.forEach(element => {
                     userList.push(
                         {
+                            id: element.user_id,
                             name: element.given_name + " " + element.family_name,
                             avatar_url: 'http://10.0.2.2:3333/api/v0.0.5/user/' + element.user_id + '/photo?timestamp=' + Date.now()
                         })
@@ -47,23 +48,10 @@ class SearchScreen extends Component {
                 console.log(error);
             });
     }
-    // getProfilePic(id) {
-    //     console.log("pic");
-    //     fetch('http://10.0.2.2:3333/api/v0.0.5/user/'+id+'/photo')
-    //         .then((response) => response.json())
-    //         .then((responseJson) => {
-    //             this.setState({
-    //                 isLoading: false,
-    //                 photo: responseJson,
-    //             });
-    //             console.log(responseJson);
-
-    //             this.forceUpdate();
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // }
+    goToProfile(id){
+        global.profileId = id;
+        this.props.navigation.navigate("Profile");
+    }
 
 
     render() {
@@ -83,6 +71,7 @@ class SearchScreen extends Component {
                                     leftAvatar={{ source: { uri: l.avatar_url } }}
                                     title={l.name}
                                     bottomDivider
+                                    onPress={() => this.goToProfile(l.id)}
                                 />
                             );
                         })

@@ -11,6 +11,8 @@ import ProfileScreen from './screens/ProfileScreen';
 import ProfileEditScreen from './screens/ProfileEditScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import CameraScreen from './screens/CameraScreen';
+import ChitCameraScreen from './screens/CameraChitScreen';
+import LogoutScreen from './screens/Logout.js';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -32,6 +34,8 @@ function Home() {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Login" component={LoginOutScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="ChitCamera" component={ChitCameraScreen}/>
+      <Stack.Screen name="Logout" component={LogoutScreen}/>
     </Stack.Navigator>
   );
 }

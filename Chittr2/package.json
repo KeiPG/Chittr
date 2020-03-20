@@ -19,6 +19,7 @@
     "react-native-camera": "^3.20.0",
     "react-native-dynamic-vector-icons": "^0.2.2",
     "react-native-elements": "^1.2.7",
+    "react-native-geolocation-service": "^4.0.0",
     "react-native-gesture-handler": "^1.6.0",
     "react-native-improved-text-input": "0.0.1",
     "react-native-login-screen": "^0.3.7",

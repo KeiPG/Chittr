@@ -33,15 +33,8 @@ class RegisterScreen extends Component {
             })
             .then((response) => {
                 console.log(response);
-                return response.json();
-            })
-            .then((responseJson) => {
-                if(responseJson){
-                
-                }
-                else 
-                {
-                    console.log("error")
+                if(response.ok){
+                    this.props.navigation.navigate('Login')
                 }
             })
             .catch((error) => {
