@@ -5,6 +5,8 @@ import { View, Text, Image, TextInput, Alert , PermissionsAndroid} from 'react-n
 // import { createStackNavigator } from 'react-navigation-stack';
 import { Card, ListItem, Button, Icon, Avatar } from 'react-native-elements'
 import Geolocation from 'react-native-geolocation-service';
+//homescreen is the first screen the user sees, on this screen we ask the user to login, display chits to the user, allow the 
+//user to logout, allow the use to post chits and add photos to chits
 class HomeScreen extends Component {
     constructor(props) {
         super(props)
@@ -20,9 +22,11 @@ class HomeScreen extends Component {
         }
 
     }
+    //this didnt work was far to laggy for my laptop
     // componentDidUpdate(){
     //     this.getChits();
     // }
+    //this function is called on mount which i used for a init
     componentDidMount() {
         this.getChits();
         this.findCoordinates();
@@ -30,7 +34,7 @@ class HomeScreen extends Component {
     // componentDidUpdate() {
     //     this.getChits();
     // }
-    
+    //this is taken from lab 6
     findCoordinates = () => {
         
         
@@ -77,6 +81,7 @@ class HomeScreen extends Component {
             }
            }
     };
+    //get user is a call to the server to send the user details of out global userid
     getUser() {
         console.log("helloworld");
         fetch('http://10.0.2.2:3333/api/v0.0.5/user/' + global.id)
@@ -95,6 +100,8 @@ class HomeScreen extends Component {
                 console.log(error);
             });
     }
+    //this is a function gets the chits according to the user(if logged in has posted before so on) and fills up a list
+    //which is used to display chits to the user
     getChits() {
         if (global.token != "") {
             this.getUser();
@@ -236,6 +243,8 @@ class HomeScreen extends Component {
         }
 
     }
+    //postchit is a function that sends chits information to the server to be saved(it checks if the chit is long enough and not
+    //not to long) 
     PostChit() {
         if (this.state.chit.length >= 142) {
             Alert.alert(
@@ -303,12 +312,14 @@ class HomeScreen extends Component {
                 });
         }
     }
+    //this opens up a camera so the user can add a photo to a chit
     addPhotoToChit(chit) {
         console.log(chit + "asdasdada");
         global.chitId = chit;
         this.props.navigation.navigate('ChitCamera');
 
     }
+    //this is a function that displays the location of a user when the sent a chit(if they gave permission)
     showLocation(long,lat){
         Alert.alert(
             'Location',

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, Button, Image, StyleSheet } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
+//this is the profile screen due to not having alot of time i have had to write this badly sorry it is
+//a mess of a screen
 class ProfileScreen extends Component {
     static navigationOptions = {
         header: null
@@ -38,6 +40,7 @@ class ProfileScreen extends Component {
     //     this.getFollowing(this.state.id);
     //     this.getFollowers(this.state.id);
     // }
+    //the init that is sets up the file
     componentDidMount() {
         if (global.profileId != "") {
             this.state.id = global.profileId;
@@ -63,6 +66,7 @@ class ProfileScreen extends Component {
         this.getFollowers(this.state.id);
         this.checkFollowing();
     }
+    //update is a function is used to reload the app as i couldnt have it auto refresh without it being super laggy.
     update() {
         if (global.profileId != "") {
             this.state.id = global.profileId;
@@ -87,6 +91,7 @@ class ProfileScreen extends Component {
         this.getFollowing(this.state.id);
         this.getFollowers(this.state.id);
     }
+    //this function is used to see if the profile being looked at is already followed
     checkFollowing() {
         this.state.following.forEach(element => {
             if (element.user_id == global.id) {
@@ -94,6 +99,7 @@ class ProfileScreen extends Component {
             }
         });
     }
+    //this is to unfollow from the account you are looking at
     unfollowUser = () => {
         return fetch("http://10.0.2.2:3333/api/v0.0.5/user/" + this.state.id + "/follow",
             {
@@ -113,6 +119,7 @@ class ProfileScreen extends Component {
                 console.error(error);
             });
     }
+    //this is to follow the account you are looking at
     followUser = () => {
         return fetch("http://10.0.2.2:3333/api/v0.0.5/user/" + this.state.id + "/follow",
             {
@@ -132,6 +139,7 @@ class ProfileScreen extends Component {
                 console.error(error);
             });
     }
+    //these functions set the states this was my quick work around im am sorry for bad practice
     setfollowersState = () => {
         this.setState({ currentState: "Followers" });
         console.log("follower");
@@ -144,6 +152,7 @@ class ProfileScreen extends Component {
         this.setState({ currentState: "Chits" });
         console.log("chit");
     }
+    //this function gets the user details for the id you give it
     getUser(id) {
         console.log("helloworld");
         userList = [];
@@ -166,6 +175,7 @@ class ProfileScreen extends Component {
                 console.log(error);
             });
     }
+    //this function get the followers for the id you give it
     getFollowers(id) {
         console.log("helloworld");
         userList = [];
@@ -188,6 +198,7 @@ class ProfileScreen extends Component {
                 console.log(error);
             });
     }
+    //this is a function the gets you the following of the id you give it
     getFollowing(id) {
         console.log("helloworld");
         userList = [];

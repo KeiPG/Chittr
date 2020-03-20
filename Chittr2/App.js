@@ -1,4 +1,4 @@
-
+//This is a twitter clone
 import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -13,9 +13,10 @@ import RegisterScreen from './screens/RegisterScreen';
 import CameraScreen from './screens/CameraScreen';
 import ChitCameraScreen from './screens/CameraChitScreen';
 import LogoutScreen from './screens/Logout.js';
-
+//import all the screens
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
+//this is a tab navigation it is also the main nav
 export default function App() {
   return (
     <NavigationContainer>
@@ -27,7 +28,7 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
+//the is a stack navigation of the home screen(this includes login, logout, register and upload chit image)
 function Home() {
   return (
     <Stack.Navigator>
@@ -39,6 +40,7 @@ function Home() {
     </Stack.Navigator>
   );
 }
+//this is a stack nav of profile which includes profile edit and change profile image
 function Profile(){
   return(
     <Stack.Navigator>
@@ -48,6 +50,7 @@ function Profile(){
     </Stack.Navigator>
   );
 }
+//search is a stack nav that allows a user to search for other users
 function Search(){
   return(
     <Stack.Navigator>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Button, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import { RNCamera } from 'react-native-camera';
+//this is another screen taken from lab 7 this one is for chit photos
 class profileEditScreen extends Component {
     static navigationOptions = {
         header: null

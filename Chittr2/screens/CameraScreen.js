@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Button, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import { RNCamera } from 'react-native-camera';
+//this is basicly taken wholesale from lab 7
 class profileEditScreen extends Component {
     static navigationOptions = {
         header: null
@@ -21,6 +22,7 @@ class profileEditScreen extends Component {
             this.picture();
         }
     }
+    //this uploads the photo to user(profile picture)
     picture(){
         return fetch("http://10.0.2.2:3333/api/v0.0.5/user/photo",
             {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Button, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import LoginScreen from "react-native-login-screen";
+//this is the screen that allows the user to change their users details
 class profileEditScreen extends Component {
     static navigationOptions = {
         header: null
@@ -16,7 +17,7 @@ class profileEditScreen extends Component {
         }
 
     }
-    
+    //edit is the function that calls to the server and asks for the patch
     Edit() {
         console.log(global.id);
         return fetch("http://10.0.2.2:3333/api/v0.0.5/user/" + global.id,

@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { View, Text, Image , TextInput} from 'react-native'
 // import { createStackNavigator } from 'react-navigation-stack';
 import { Card, ListItem, Button, Icon, Avatar } from 'react-native-elements'
+//this allows the user to search for profiles and go to them
 class SearchScreen extends Component {
     
     constructor(props) {
@@ -17,10 +18,12 @@ class SearchScreen extends Component {
         }
 
     }
-
+//basic init
     componentDidMount() {
         this.getUsers("");
     }
+    //getuser is a function the asks the server for all the accounts with the name(letters given) this
+    //then puts them in a list to display to the user
     getUsers(name) {
         console.log("helloworld");
         fetch('http://10.0.2.2:3333/api/v0.0.5/search_user?q='+name)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Button , ActivityIndicator, TextInput} from 'react-native';
 import LoginScreen from "react-native-login-screen";
+//this is a simple register screen
 class RegisterScreen extends Component {
     static navigationOptions = {
         header: null
@@ -16,6 +17,7 @@ class RegisterScreen extends Component {
         }
         
     }
+    //this takes the details on screen and registers an account with the i forgot to do any checks on this
     Register(){
         return fetch("http://10.0.2.2:3333/api/v0.0.5/user",
             {

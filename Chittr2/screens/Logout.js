@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, Button , ActivityIndicator, TextInput} from 'react-native';
+//this is a simple logout screen
 class LogOutScreen extends Component {
     static navigationOptions = {
         header: null
@@ -14,6 +15,7 @@ class LogOutScreen extends Component {
         }
         
     }
+    //this logs the user out
     logout(){
         return fetch("http://10.0.2.2:3333/api/v0.0.5/logout",
             {

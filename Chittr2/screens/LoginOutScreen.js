@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, Button , ActivityIndicator, TextInput} from 'react-native';
+//this is a simple login screen
 class LoginOutScreen extends Component {
     static navigationOptions = {
         header: null
@@ -14,6 +15,7 @@ class LoginOutScreen extends Component {
         }
         
     }
+    //this is a function that takes the details on the page and try to log in with them
     login(){
         return fetch("http://10.0.2.2:3333/api/v0.0.5/login",
             {
